@@ -1,6 +1,6 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
-    min-width: 800px;
+    /* min-width: 800px; */
 }
 
 h1 {
@@ -27,6 +27,7 @@ a {
     text-decoration: none;
 }
 
+
 #roomUserText {
     width: 100%;
     text-align: right;
@@ -43,6 +44,7 @@ a {
 
 .splitchattable, .splitstatetable {
     width: 100%;
+    float: left; 
 }
 
 .splitstatetable td {
@@ -55,6 +57,7 @@ a {
 
 .chatcontainer, .giftcontainer, .eventcontainer {
     overflow-y: scroll;
+    width: 50px;
     height: calc(100vh - 240px);
     word-wrap: break-word;
 }
@@ -64,12 +67,15 @@ a {
 }
 
 .chatcontainer {
-    min-width: 400px;
-    max-width: calc(100vw - 430px);
+    width: 20%; /* Set chat container to take 100% width */
+    float: left; /* Anchor chat container to the left */
+    left: 0%;
 }
 
 .giftcontainer {
-    min-width: 400px;
+    width: 20%; /* Set gift container width to take up remaining space */
+    float: right; /* Anchor gift container to the right */
+    right: 0%;
 }
 
 .miniprofilepicture {
@@ -81,4 +87,24 @@ a {
     height: 50px;
     width: 50px;
     margin-right: 10px;
+}
+.head,
+.inputFields,
+.splitstatetable,
+.splitchattable {
+    position: relative; /* Ensure UI elements stay in their current position */
+    z-index: 1; /* Ensure UI elements are above the game canvas */
+    
+}
+.inputFields{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8em;
+}
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ensure the game canvas is behind other elements */
 }
